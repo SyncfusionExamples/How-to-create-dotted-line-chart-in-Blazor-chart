@@ -1,22 +1,21 @@
 # How-to-create-dotted-line-chart-in-Blazor-chart 
 
-This article explains how to create dotted line in blazor chart.
+This article explains how to create dotted line in Blazor Chart Component.
 
-**Creating dotted line chart using DashArray property**
+**Creating dotted line chart in Blazor chart**
 
-A line chart in [Blazor chart](https://www.syncfusion.com/blazor-components/blazor-charts) display information as a series of data points which are connected by the straight-line segments. [Blazor chart](https://www.syncfusion.com/blazor-components/blazor-charts)  provides support to  create a dotted line chart using inbuild APIs. This section explains how to apply a dashed style line in [Blazor chart](https://www.syncfusion.com/blazor-components/blazor-charts).
+A line chart in Blazor displays information as a series of data points connected by straight-line segments. [Blazor Chart](https://www.syncfusion.com/blazor-components/blazor-charts) provides support to create a dotted line chart using built-in APIs. Dotted and dashed lines can be rendered using the [DashArray](https://help.syncfusion.com/cr/blazor/Syncfusion.Blazor.Charts.ChartSeries.html#Syncfusion_Blazor_Charts_ChartSeries_DashArray) property in [ChartSeries](https://help.syncfusion.com/cr/blazor/Syncfusion.Blazor.Charts.ChartSeries.html). This property defines the pattern of dashes and gaps used to stroke lines in line type series. 
 
-Dashed line can de rendered by using [DashArray](https://help.syncfusion.com/cr/blazor/Syncfusion.Blazor.Charts.ChartSeries.html#Syncfusion_Blazor_Charts_ChartSeries_DashArray) property in [ChartSeries](https://help.syncfusion.com/cr/blazor/Syncfusion.Blazor.Charts.ChartSeries.html).
+The code example below illustrates how to create a dotted line in a Blazor chart.
 
-The below Code example illustrates this.
-
-**C#**
+**Idex.razor**
 
 ```cshtml
 
 @using Syncfusion.Blazor.Charts
 
 <SfChart Title="Olympic Medals">
+
     <ChartPrimaryXAxis ValueType="Syncfusion.Blazor.Charts.ValueType.Category"></ChartPrimaryXAxis>
 	
     <ChartSeriesCollection>
@@ -24,9 +23,11 @@ The below Code example illustrates this.
                      DashArray="5,5" Fill="blue" Type="ChartSeriesType.Line">
         </ChartSeries>
     </ChartSeriesCollection>
+
 </SfChart>
 
 @code{
+
     public class ChartData
     {
         public string X { get; set; }
@@ -52,11 +53,11 @@ The below Code example illustrates this.
 
 ```
 
-The following screenshot illustrate the output of the above code snippet.
+The following screenshot illustrates the output of the above code snippet.
 
 **Output:**
 
-![](/dotted-line.png)
+![Dotted line in Blazor chart](/dotted-line.png)
  
 **Conclusion**
 
