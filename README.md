@@ -1,70 +1,68 @@
-# How-to-create-dotted-line-chart-in-Blazor-chart 
+# How to Create a Dotted Line Chart in Blazor Using Syncfusion Charts
 
-This article explains how to create dotted line in Blazor Chart Component.
+## Overview
 
-**Creating dotted line chart in Blazor chart**
+This sample demonstrates how to create a dotted or dashed line chart using Syncfusion [Blazor Charts](https://www.syncfusion.com/blazor-components/blazor-charts). The implementation renders a line series with a custom dash pattern by using the `DashArray` property of `ChartSeries`.
 
-A line chart in Blazor displays information as a series of data points connected by straight-line segments. [Blazor Chart](https://www.syncfusion.com/blazor-components/blazor-charts) provides support to create a dotted line chart using built-in APIs. Dotted and dashed lines can be rendered using the [DashArray](https://help.syncfusion.com/cr/blazor/Syncfusion.Blazor.Charts.ChartSeries.html#Syncfusion_Blazor_Charts_ChartSeries_DashArray) property in [ChartSeries](https://help.syncfusion.com/cr/blazor/Syncfusion.Blazor.Charts.ChartSeries.html). This property defines the pattern of dashes and gaps used to stroke lines in line type series. 
+The sample binds a strongly typed collection of data objects to a line chart and displays category-based values across multiple countries. This approach is useful for visualizing trends, forecasts, threshold indicators, or comparison datasets where dashed or dotted lines help distinguish a series from other chart elements.
 
-The code example below illustrates how to create a dotted line in a Blazor chart.
+## Key Features
 
-**Idex.razor**
+- Uses the `SfChart` component to render chart data.
+- Configures the primary X-axis using `ChartPrimaryXAxis`.
+- Sets `ValueType="ValueType.Category"` for category-based axis labels.
+- Uses a `ChartSeries` configured with:
+  - `Type="ChartSeriesType.Line"`
+  - `DataSource` for data binding
+  - `XName` and `YName` field mappings
+  - `DashArray="5,5"` to render a dashed/dotted line pattern
+  - `Width="3"` to control line thickness
+  - `Opacity="0.5"` to control series transparency
+  - `Fill="blue"` to define the series color
+- Demonstrates strongly typed data binding using a custom `ChartData` model.
+- Displays line-chart data using category values and corresponding numeric measurements.
 
-```cshtml
+## Prerequisites
 
-@using Syncfusion.Blazor.Charts
+- [Visual Studio 2022](https://visualstudio.microsoft.com/vs/) or [Visual Studio Code](https://code.visualstudio.com/)
+- [.NET SDK](https://dotnet.microsoft.com/en-us/download/dotnet) compatible with the project's target framework
 
-<SfChart Title="Olympic Medals">
+## How to Run the Project
 
-    <ChartPrimaryXAxis ValueType="Syncfusion.Blazor.Charts.ValueType.Category"></ChartPrimaryXAxis>
-	
-    <ChartSeriesCollection>
-        <ChartSeries DataSource="@MedalDetails" XName="X" YName="Y" Width="3" Opacity="0.5"
-                     DashArray="5,5" Fill="blue" Type="ChartSeriesType.Line">
-        </ChartSeries>
-    </ChartSeriesCollection>
+**Visual Studio 2022**
 
-</SfChart>
+1. Clone or download this repository.
+2. Open the `DottedLine.csproj` project file.
+3. Restore NuGet packages when prompted.
+4. Build the project.
+5. Run the application using `Ctrl+F5`.
+6. Navigate to the page hosting the chart sample to view the dotted line chart.
 
-@code{
+**Visual Studio Code**
 
-    public class ChartData
-    {
-        public string X { get; set; }
-        public double Y { get; set; }
-    }
-	
-    public List<ChartData> MedalDetails = new List<ChartData>
-	{
-        new ChartData { X= "South Korea", Y= 39.4 },
-        new ChartData { X= "India", Y= 61.3 },
-        new ChartData { X= "Pakistan", Y= 20.4 },
-        new ChartData { X= "Germany", Y= 65.1 },
-        new ChartData { X= "Australia", Y= 15.8 },
-        new ChartData { X= "Italy", Y= 29.2 },
-        new ChartData { X= "United Kingdom", Y= 44.6 },
-        new ChartData { X= "Saudi Arabia", Y= 9.7 },
-        new ChartData { X= "Russia", Y= 40.8 },
-        new ChartData { X= "Mexico", Y= 31 },
-        new ChartData { X= "Brazil", Y= 75.9 },
-        new ChartData { X= "China", Y= 51.4 }
-    };
-}
+1. Clone or download this repository.
+2. Open the repository folder in Visual Studio Code.
+3. Open the integrated terminal.
+4. Navigate to the project directory.
 
+```bash
+cd DottedLine
+dotnet restore
+dotnet run
 ```
 
-The following screenshot illustrates the output of the above code snippet.
+5. Open the local application URL displayed in the terminal after the application starts.
 
-**Output:**
+## Project Structure
 
-![Dotted line in Blazor chart](/dotted-line.png)
- 
-**Conclusion**
+`DottedLine/Pages/Index.razor` — Implements the Syncfusion chart sample, data model, category axis configuration, line-series definition, and `DashArray` customization used to render the dotted line.
 
-I hope you enjoyed learning how to create dotted line in Blazor Chart Component.
+## Support and Feedback
 
-You can refer to our [Blazor Chart feature tour](https://www.syncfusion.com/blazor-components/blazor-charts) page to know about its other groundbreaking feature representations and [documentation](https://blazor.syncfusion.com/documentation/chart/getting-started), and how to quickly get started for configuration specifications. You can also explore our [Blazor Chart example](https://blazor.syncfusion.com/demos/chart/line?theme=bootstrap5) to understand how to create and manipulate data.
+- For general product questions, visit the [Syncfusion Community Forum](https://www.syncfusion.com/forums) or [Syncfusion Support](https://www.syncfusion.com/support).
+- To report an issue specific to this sample, open a GitHub issue in this repository.
+- Official documentation for Syncfusion Blazor Chart: https://help.syncfusion.com/chart-sdk/blazor/charts/getting-started
 
-For current customers, you can check out our components from the [License and Downloads](https://www.syncfusion.com/sales/teamlicense) page. If you are new to Syncfusion, you can try our 30-day [free trial](https://www.syncfusion.com/downloads/blazor) to check out our other controls.
+## License
 
-If you have any queries or require clarifications, please let us know in the comments section below. You can also contact us through our [support forums](https://www.syncfusion.com/forums), [support portal](https://support.syncfusion.com/create), or [feedback portal](https://www.syncfusion.com/feedback/blazor-components?control=charts). We are always happy to assist you!
+This is a Syncfusion sample project provided to demonstrate product usage. Review the [Syncfusion license terms](https://www.syncfusion.com/sales/pricing?category=ui-components) before using Syncfusion components in your own applications.
