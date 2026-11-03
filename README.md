@@ -8,7 +8,7 @@ A line chart in Blazor displays information as a series of data points connected
 
 The code example below illustrates how to create a dotted line in a Blazor chart.
 
-**Idex.razor**
+**Home.razor**
 
 ```cshtml
 
